@@ -1,32 +1,78 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NLP Emotion Detection Tool - Analyze text emotions using AI">
+    <title>NLP Emotion Detection</title>
+    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="./static/mywebscript.js"></script>
+    
+    <!-- Custom Styles -->
     <style>
         .center-heading {
             text-align: center;
         }
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result-container {
+            min-height: 100px;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="card-body">
-            <h1 class="center-heading">NLP - Emotion Detection</h1> 
-            <div style="padding: 25px 25px 25px 25px;">
-            <h2 class="mb-3">
-                <label class="form-label">Please enter the text to be analyzed</label>
-                <input type="textarea" class="form-control" id="textToAnalyze">
-            </h2>
+    <div class="main-container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="center-heading">NLP - Emotion Detection</h1>
+                
+                <form id="emotionForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="textToAnalyze" class="h5">Please enter the text to be analyzed</label>
+                        <textarea 
+                            class="form-control" 
+                            id="textToAnalyze" 
+                            rows="4" 
+                            placeholder="Enter your text here..."
+                            required
+                            aria-label="Text to analyze"
+                        ></textarea>
+                    </div>
 
-            <div style="padding: 25px 25px 25px 25px;">
-                <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg" id="analyzeButton">
+                            Run Sentiment Analysis
+                        </button>
+                        <button type="button" class="btn btn-secondary ml-2" onclick="clearResults()">
+                            Clear
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-4">
+                    <h2 class="h5">Result of Emotion Detection</h2>
+                    <div id="system_response" class="result-container" role="status" aria-live="polite">
+                        <p class="text-muted text-center">Results will appear here...</p>
+                    </div>
+                </div>
             </div>
-            <div style="padding: 25px 25px 25px 25px;"></div>
-            <h2 class="mb-3">
-                <label class="form-label">Result of Emotion Detection</label>
-            </h2>
-
-            <div id="system_response" style="padding: 25px 25px 25px 25px;"></div>
         </div>
     </div>
+
+    <!-- Bootstrap JS Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3yXB73x9IMsddGYolipd8lHulrYXmB1jN9p6KzT4hjeCG5GGUrqE" crossorigin="anonymous"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="./static/mywebscript.js"></script>
 </body>
+</html>
